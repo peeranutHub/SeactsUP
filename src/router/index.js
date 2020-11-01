@@ -65,7 +65,7 @@ const routes = [
     component: Requestclub
   },
   {
-    path: '/club1/:id',
+    path: '/viewClub/:id',
     name: 'club1',
     component: club1
   },

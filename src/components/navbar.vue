@@ -2,9 +2,8 @@
   <div>
     <b-navbar toggleable="lg" type="dark" style="background-color: #6f42c1">
       <b-navbar-brand>
-        <b-button type="submit" style="background-color: #be5ace"
-          >SEACTs UP</b-button
-        >
+        <b-button type="submit" style="background-color: #be5ace" to="/"
+          >SEACTs UP</b-button>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -13,10 +12,10 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/">ชมรม</b-nav-item>
-          <b-nav-item to="/ClubForm">สร้างชมรม</b-nav-item>
+          <b-nav-item to="/formCreate">สร้างชมรม</b-nav-item>
           <b-nav-item to="/profile">โปรไฟล์</b-nav-item>
           <b-button
-            style="float: right; margin: 15px"
+            style="float: right; margin: 15px; padding: 2px 20px;"
             v-if="auth.length != 0"
             v-on:click="logout()"
             >{{ auth }}</b-button
@@ -24,11 +23,9 @@
           <router-link
             to="/login"
             style="
-              float: right;
-              margin: 15px;
-              background: black;
+              background: #FFC107;
               color: white;
-              padding: 10px 15px;
+              padding: 5px 20px;
               text-decoration: none;
             "
             v-if="auth.length == 0"

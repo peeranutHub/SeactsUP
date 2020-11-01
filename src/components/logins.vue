@@ -24,15 +24,14 @@
           >
         </div>
         <router-link to="register">register</router-link><br>
+        <router-link to="Requestclub">Admin</router-link>
         <input type="submit" value="Submit" class="Submit" />
       </form>
-      {{ getUsers }}
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -41,11 +40,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ getUsers: "getUsers" }),
+    
   },
     created: function () {
     // `this` points to the vm instance
-    console.log(localStorage.user)
     if(localStorage.user != undefined){
       this.$router.push({ path: '/' })
     }

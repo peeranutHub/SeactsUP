@@ -1,31 +1,67 @@
 <template>
   <div>
     <div class="userData">
-        <button type="button" class="btn btn-secondary" value="input">Edit</button><br>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        value="input"
+        @click="showEdit = !showEdit"
+      >
+        Edit</button
+      ><br />
       <img
         src="../assets/avatar.png"
         alt="avatar"
-        style="height: 200px; weight:auto; "
+        style="height: 200px; weight: auto"
       />
-      <p>ชื่อ จากdatabase</p>
-      <p>รหัสนิสิต จากdatabase</p>
-      <p>ชั้นปี จากdatabase</p>
-      <p>คณะ จากdatabase</p>
-      <p>สาขา จากdatabase</p>
-      <div>
-        <span>ชมรมของฉัน</span>
-        <p>ชมรมที่นิสิตคนนี้สร้าง จากdatabase</p>
+      <div v-if="!showEdit">
+        <p>ชื่อ {{ user.s_name }}</p>
+        <p>รหัสนิสิต {{ user.s_id }}</p>
+        <p>ชั้นปี {{ user.year }}</p>
+        <p>คณะ {{ user.board }}</p>
+        <p>สาขา {{ user.board_branch }}</p>
+        <div>
+          <span>ชมรมของฉัน</span>
+          <p>ชมรมที่นิสิตคนนี้สร้าง</p>
+          <span>{{ user.create }}</span>
+        </div>
+        <div>
+          <span>ชมรมที่เข้าร่วม</span>
+          <span>{{ user.myClub }}</span>
+        </div>
       </div>
-      <div>
-        <span>ชมรมที่เข้าร่วม</span>
-        <p>ชมรมที่เข้าร่วม จากdatabase</p>
+      <div v-else>
+        <editProfile />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+import editProfile from "../components/editProfile";
+export default {
+  components: {
+    editProfile
+  },
+  data() {
+    return {
+      showEdit: false,
+      foo: {
+        board_branch: "SE",
+        s_id: "62021449",
+        email: "peera@gmail.com",
+        s_name: "peeranut",
+        board: "ICT",
+        myClub: ["กระดานดำ", "เเบดมินตัน", "คนพิเศษ"],
+        s_Lname: "moonrut",
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({ user: "getUser" }),
+  },
+};
 </script>
 
 <style>

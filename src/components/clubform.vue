@@ -2,10 +2,6 @@
   <div>
     <br>
     <div class="d-flex">
-      <h2>อาจารย์ที่ปรึกษา1:</h2>
-      <input v-model="advisor1" type="advisor1">
-    </div>
-    <div class="d-flex">
       <h2>อาจารย์ที่ปรึกษา2:</h2>
       <input v-model="advisor2" type="advisor2">
     </div>
@@ -51,7 +47,6 @@
         <h2>Email:</h2>
         <input v-model="email" type="">
       </div>
-      <b-button to="Formcreate">ถัดไป</b-button>
     </div>
 
   </div>

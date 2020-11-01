@@ -6,7 +6,9 @@
         </div>
         <br><br>
         <div>
-            <b-table striped hover :items="items"></b-table>
+            <b-table striped hover :items="items">
+              <li>accept</li>
+            </b-table>
         </div>
     </div>
 </template>

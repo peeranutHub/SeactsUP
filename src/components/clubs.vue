@@ -1,75 +1,51 @@
 <template>
   <div>
-    <div class="ml-auto">
-      <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
-        <b-dropdown-item>First Action</b-dropdown-item>
-        <b-dropdown-item>Second Action</b-dropdown-item>
-        <b-dropdown-item>Third Action</b-dropdown-item>
+    <div class="ml-auto" style="max-width: 25rem; display: flex: justify-content: flex-end;">
+      <b-dropdown id="dropdown-1" text="Filter" class="m-md-2">
+        <b-dropdown-item>วันที่ลง</b-dropdown-item>
+        <b-dropdown-item>ตามตัวอักษร</b-dropdown-item>
+        <b-dropdown-item>จำนวนสมาชิก</b-dropdown-item>
       </b-dropdown>
       <input type="search" />
-      <!-- login -->
 
-      <!-- login -->
+      <b-button size="lg" style="background: #6F42C1;"  class="m-md-2">
+      <b-icon icon="search" aria-label="Help"></b-icon>
+      </b-button>
     </div>
 
     <div class="card-container">
       <b-card
-        v-for="i in club"
-        :key="i.id"
-        :img-src="i.img"
+        v-for="i in OP"
+        :key="i.c_id"
+        img-src="https://picsum.photos/600/300/?image=25"
         img-alt="Image"
         img-top
         tag="article"
         class="box-club"
       >
-        <!-- <b-button href="#" variant="primary" @click="goto(i.id)">{{i.name}}</b-button> -->
-        <router-link :to="`club1/${i.id}`">{{ i.name }}</router-link>
+        <router-link :to="`viewClub/${i.c_id}`">{{ i.c_name}}</router-link>
       </b-card>
     </div>
   </div>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
 export default {
   data() {
-    return {
-      club: [
-        {
-          id: 1,
-          name: "kradandum",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-        {
-          id: 2,
-          name: "badminton",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-        {
-          id: 3,
-          name: "Inu",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-        {
-          id: 4,
-          name: "konphiset",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-        {
-          id: 5,
-          name: "changphab",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-        {
-          id: 6,
-          name: "cover dance",
-          img: "https://picsum.photos/600/300/?image=25",
-        },
-      ],
-    };
+    return {};
   },
   methods: {
     goto(i) {
       console.log(i);
     },
+  },
+  computed: {
+    ...mapGetters({
+      OP: "getterDATA",
+    }),
+  },
+  created() {
+    this.$store.dispatch("dataclubs");
   },
 };
 </script>
