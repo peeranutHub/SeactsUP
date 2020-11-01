@@ -67,7 +67,7 @@
     </div>
 
     <div>
-      <b-button @click="ea" size="sm" class="my-2 my-sm-0" type="submit">ถักไป></b-button>
+      <b-button to="/" @click="ea" size="sm" class="my-2 my-sm-0" type="submit">ถัดไป </b-button>
     </div>
     <div>{{presidents}} {{ids}}</div>
 

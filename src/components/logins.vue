@@ -1,9 +1,6 @@
 <template>
   <div class="test-p">
     <div class="extra-container">
-      <div>
-        <img src="../assets/logo.png" alt="">
-      </div>
       <h1>SeactsUP</h1>
       <form @submit.prevent="loginEmail">
         <div class="inputForm">

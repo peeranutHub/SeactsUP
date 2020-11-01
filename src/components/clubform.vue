@@ -51,6 +51,7 @@
         <h2>Email:</h2>
         <input v-model="email" type="">
       </div>
+      <b-button to="Formcreate">ถัดไป</b-button>
     </div>
 
   </div>

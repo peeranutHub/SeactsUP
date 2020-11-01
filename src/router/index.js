@@ -10,6 +10,7 @@ import Loginaddmin from '../views/Loginaddmin'
 import Requestclub from '../views/Requestclub'
 import club1 from '../views/club1'
 import registers from '../views/register'
+import profile from '../views/profile'
 
 
 Vue.use(VueRouter)
@@ -73,7 +74,11 @@ const routes = [
     name: 'register',
     component: registers
   },
-  
+  {
+    path: '/profile',
+    name: 'profile',
+    component: profile
+  }
 ]
 
 const router = new VueRouter({
